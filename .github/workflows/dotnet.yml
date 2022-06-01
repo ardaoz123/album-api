@@ -1,0 +1,56 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: ./Album-Api
+      
+    - name: Build
+      run: dotnet build --no-restore
+      working-directory: ./Album-Api
+      
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+      working-directory: ./Album-Api
+      
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag album-api-image:$(date +%s)
+      working-directory: ./Album-Api/Album.Api
+      
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+        aws-region: us-east-1
+      
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+      
+    - name: Build and push image to Amazon ECR
+      id: build-image
+      working-directory: ./Album-Api/Album.Api
+      env:
+        IMAGE_TAG: ${{ github.run_number }}
+      run: 
+        |
+        docker build -t 944105816133.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG .
+        docker push 944105816133.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG

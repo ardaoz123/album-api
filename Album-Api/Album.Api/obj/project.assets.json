@@ -281,19 +281,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kylia\\.nuget\\packages\\": {}
+    "C:\\Users\\zoon_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kylia\\Documents\\Cloud_Assignments\\album-api\\Album-Api\\Album.Api\\Album.Api.csproj",
+      "projectUniqueName": "C:\\Users\\zoon_\\OneDrive\\Documenten\\GitHub\\album-api\\Album-Api\\Album.Api\\Album.Api.csproj",
       "projectName": "Album.Api",
-      "projectPath": "C:\\Users\\kylia\\Documents\\Cloud_Assignments\\album-api\\Album-Api\\Album.Api\\Album.Api.csproj",
-      "packagesPath": "C:\\Users\\kylia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kylia\\Documents\\Cloud_Assignments\\album-api\\Album-Api\\Album.Api\\obj\\",
+      "projectPath": "C:\\Users\\zoon_\\OneDrive\\Documenten\\GitHub\\album-api\\Album-Api\\Album.Api\\Album.Api.csproj",
+      "packagesPath": "C:\\Users\\zoon_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zoon_\\OneDrive\\Documenten\\GitHub\\album-api\\Album-Api\\Album.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kylia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zoon_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -338,6 +338,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.17, 5.0.17]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -346,7 +352,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -52,5 +52,5 @@ jobs:
         IMAGE_TAG: ${{ github.run_number }}
       run: 
         |
-        docker build -t 944105816133.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG .
-        docker push 944105816133.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG
+        docker build -t 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG .
+        docker push 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG

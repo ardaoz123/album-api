@@ -27,7 +27,7 @@ namespace Album.Api.Tests
         [Fact]
         public void TestName()
         {
-            Assert.Equal("Hello Test", GreetingService.Greeting("Test"));
+            Assert.Equal("Hello Test, " + Dns.GetHostName(), GreetingService.Greeting("Test"));
         }
     }
 }

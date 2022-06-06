@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Album.Api
 {
@@ -17,7 +18,7 @@ namespace Album.Api
             }
 
             string hostName = Dns.GetHostName();
-            return "Hello " + hostName; 
+            return "Hello " + name + ", " + hostName; 
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-using System.net;
+using System.Net;
 
 namespace Album.Api.Tests
 {

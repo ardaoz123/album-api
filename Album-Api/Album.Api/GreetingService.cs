@@ -16,7 +16,8 @@ namespace Album.Api
                 return "Hello World";
             }
 
-            return "Hello " + name;
+            string hostName = Dns.GetHostName();
+            return "Hello " + name + ", " + hostName; 
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Album.Api
             app.UseRouting();
 
             app.UseAuthorization();
-
+//fine
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

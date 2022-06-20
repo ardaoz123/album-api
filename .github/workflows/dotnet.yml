@@ -61,9 +61,9 @@ jobs:
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      uses: aws-actions/amazon-ecs-render-task-definition@v5
       with:
-        task-definition: album-api/Album-Api/Album.Api/task-definition.json
+        task-definition: task-definition.json
         container-name: AlbumContainer
         image: 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG
 

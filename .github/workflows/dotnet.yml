@@ -58,7 +58,7 @@ jobs:
         |
         docker build -t 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG .
         docker push 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG
-        ls -la
+        
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def

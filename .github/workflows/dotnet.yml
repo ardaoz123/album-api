@@ -62,6 +62,7 @@ jobs:
         task-definition: task-definition.json
         container-name: AlbumContainer
         image: 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG
+      working-directory: ./Album-Api
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -70,3 +71,4 @@ jobs:
         service: AlbumServiceBlueGreen
         cluster: AlbumCluster
         wait-for-service-stability: true
+      working-directory: ./Album-Api

@@ -11,10 +11,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    aws ecs describe-task-definition \
-       --task-definition my-task-definition-family \
-       --query taskDefinition > task-definition.json
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -68,6 +64,9 @@ jobs:
         container-name: AlbumContainer
         image: 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG
 
+    aws ecs describe-task-definition \
+       --task-definition my-task-definition-family \
+       --query taskDefinition > task-definition.json
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1

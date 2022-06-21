@@ -57,7 +57,6 @@ jobs:
         ls -la
 
     - name: Download task definition
-      working-directory: ./Album-Api/Album.Api
       run: |
         aws ecs describe-task-definition --task-definition my-task-definition-family --query taskDefinition > task-definition.json
 

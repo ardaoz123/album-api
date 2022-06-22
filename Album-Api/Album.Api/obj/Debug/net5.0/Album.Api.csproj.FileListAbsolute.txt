@@ -54,3 +54,4 @@ C:\Users\zoon_\OneDrive\Documenten\GitHub\album-api\Album-Api\Album.Api\obj\Debu
 C:\Users\zoon_\OneDrive\Documenten\GitHub\album-api\Album-Api\Album.Api\obj\Debug\net5.0\Album.Api.pdb
 C:\Users\zoon_\OneDrive\Documenten\GitHub\album-api\Album-Api\Album.Api\obj\Debug\net5.0\Album.Api.genruntimeconfig.cache
 C:\Users\zoon_\OneDrive\Documenten\GitHub\album-api\Album-Api\Album.Api\obj\Debug\net5.0\ref\Album.Api.dll
+C:\Users\zoon_\OneDrive\Documenten\GitHub\album-api\Album-Api\Album.Api\bin\Debug\net5.0\task-definition.json

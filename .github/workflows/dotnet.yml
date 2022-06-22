@@ -68,7 +68,7 @@ jobs:
       id: Debug  
       run:
         |
-        cat ./Album-Api/Album.Api/task-definition.json
+        cat ${{ steps.task-def.outputs.task-definition }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1

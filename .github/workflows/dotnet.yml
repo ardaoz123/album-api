@@ -31,7 +31,7 @@ jobs:
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag album-api-image:$(date +%s)
-      working-directory: ./album-api/Album-Api
+      working-directory: ./album-api/Album-Api/Album.Api
       
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1

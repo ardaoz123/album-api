@@ -67,7 +67,7 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: task-definition.json
+        task-definition: ./Album-Api/Album.Api/task-definition.json
         service: AlbumServiceBlueGreen
         cluster: AlbumCluster
         wait-for-service-stability: true

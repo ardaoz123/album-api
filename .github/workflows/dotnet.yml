@@ -61,7 +61,8 @@ jobs:
       with:
         task-definition: ./Album-Api/Album.Api/task-definition.json
         container-name: AlbumContainer
-        image: 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:${{ github.run_number }}
+        image: ${{ steps.build-image.outputs.image }}
+
     - name: Debug
       id: Debug  
       run:
@@ -71,7 +72,7 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ./Album-Api/Album.Api/task-definition.json
+        task-definition:  ${{ steps.task-def.outputs.task-definition }}
         service: AlbumServiceBlueGreen
         cluster: AlbumCluster
         wait-for-service-stability: true

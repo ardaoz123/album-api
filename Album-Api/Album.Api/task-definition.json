@@ -59,7 +59,6 @@
   "placementConstraints": [],
   "memory": "512",
   "taskRoleArn": "arn:aws:iam::465480687456:role/LabRole",
-  ],
   "family": "AlbumTaskDefinition",
   "pidMode": null,
   "requiresCompatibilities": [

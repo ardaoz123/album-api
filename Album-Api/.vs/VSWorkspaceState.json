@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.idea",
+    "\\Album.Api",
+    "\\Album.Api.Tests",
+    "\\Models"
   ],
+  "SelectedNode": "\\Album-Api.sln",
   "PreviewInSolutionExplorer": false
 }

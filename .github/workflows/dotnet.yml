@@ -54,20 +54,26 @@ jobs:
         |
         docker build -t 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG .
         docker push 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG
-        ls -la
+        echo "::set-output name=image:: 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG"
         
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: task-definition.json
+        task-definition: ./Album-Api/Album.Api/task-definition.json
         container-name: AlbumContainer
-        image: 465480687456.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:$IMAGE_TAG
+        image: ${{ steps.build-image.outputs.image }}
+
+    - name: Debug
+      id: Debug  
+      run:
+        |
+        cat ${{ steps.task-def.outputs.task-definition }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: task-definition.json
+        task-definition:  ${{ steps.task-def.outputs.task-definition }}
         service: AlbumServiceBlueGreen
         cluster: AlbumCluster
         wait-for-service-stability: true

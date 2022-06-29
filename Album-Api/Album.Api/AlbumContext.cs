@@ -14,7 +14,5 @@ namespace Album.Api
 
         public AlbumContext(DbContextOptions<AlbumContext> options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseNpgsql(DatabaseConfig.DefaultConnection);
     }
 }

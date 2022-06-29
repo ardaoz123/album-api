@@ -10,6 +10,7 @@ using AlbumApi.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Album.Api.Service;
+using Microsoft.EntityFrameworkCore;
 
 namespace Album.Api.Tests
 {
@@ -19,9 +20,14 @@ namespace Album.Api.Tests
 
         public UnitTestController()
         {
-            IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            DatabaseConfig.DefaultConnection = configuration.GetConnectionString("DefaultConnection");
-            IServiceProvider provider = new ServiceCollection().AddDbContext<AlbumContext>().AddScoped<IAlbumService, AlbumService>().BuildServiceProvider();
+            IServiceCollection services = new ServiceCollection();
+
+            services.AddDbContext<AlbumContext>(options =>
+            {
+                options.UseInMemoryDatabase("InMemoryDbForTesting");
+            });
+            services.AddScoped<IAlbumService, AlbumService>();
+            IServiceProvider provider = services.BuildServiceProvider();
             IAlbumService service = provider.GetRequiredService<IAlbumService>();
             this._controller = new AlbumController(service);
         }
@@ -34,9 +40,7 @@ namespace Album.Api.Tests
             var okObject = (OkObjectResult)response.Result;
             var value = (IEnumerable<AlbumModel>)okObject.Value;
 
-            //Test DB Initializer working
-            Assert.Contains(value, x => x.Id == 1);
-            Assert.Contains(value, x => x.Id == 2);
+            Assert.Empty(value);
         }
 
         [Fact]

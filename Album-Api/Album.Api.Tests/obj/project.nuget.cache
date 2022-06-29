@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aM2Bbt11+CdGVcKNsLFxZ4hrtlyQK9BVwOmE4LTo3k2avbzEe1hD/jieT+pjgui/lTANBhFKNbQA0jyJJxgKsw==",
+  "dgSpecHash": "T3dY51qkFop6PTc1j1G6WwkcwZglzAqGEBehFkVZXZt0hU9qngH45X5SBQN54vgzmm+0BJXAk0fjtXwN+AyITg==",
   "success": true,
   "projectFilePath": "C:\\Users\\zoon_\\Documents\\GitHub\\Courses\\Cloud\\album-api\\Album-Api\\Album.Api.Tests\\Album.Api.Tests.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "C:\\Users\\zoon_\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.17\\microsoft.entityframeworkcore.abstractions.5.0.17.nupkg.sha512",
     "C:\\Users\\zoon_\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.17\\microsoft.entityframeworkcore.analyzers.5.0.17.nupkg.sha512",
     "C:\\Users\\zoon_\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.17\\microsoft.entityframeworkcore.design.5.0.17.nupkg.sha512",
+    "C:\\Users\\zoon_\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.17\\microsoft.entityframeworkcore.inmemory.5.0.17.nupkg.sha512",
     "C:\\Users\\zoon_\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.17\\microsoft.entityframeworkcore.relational.5.0.17.nupkg.sha512",
     "C:\\Users\\zoon_\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.17\\microsoft.entityframeworkcore.sqlserver.5.0.17.nupkg.sha512",
     "C:\\Users\\zoon_\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.17\\microsoft.entityframeworkcore.tools.5.0.17.nupkg.sha512",

@@ -38,6 +38,10 @@ namespace Album.Api.Service
             {
                 return null;
             }
+            catch (ArgumentException)
+            {
+                return null;
+            }
             return model;
         }
 

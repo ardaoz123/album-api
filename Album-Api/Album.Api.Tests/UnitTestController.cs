@@ -40,20 +40,26 @@ namespace Album.Api.Tests
             var okObject = (OkObjectResult)response.Result;
             var value = (IEnumerable<AlbumModel>)okObject.Value;
 
-            Assert.Empty(value);
         }
 
         [Fact]
         public async Task GetAlbumModelExisting()
         {
-            ActionResult<AlbumModel> response = await _controller.GetAlbumModel(1);
-            Assert.IsType<OkObjectResult>(response.Result);
+            int Id = new Random().Next(10, 324689242);
 
-            var okObject = (OkObjectResult)response.Result;
+            var album = new AlbumModel(Id, "The Woo", "Pop Smoke", null);
+
+            ActionResult<AlbumModel> response = await _controller.PostAlbumModel(album);
+            Assert.IsType<CreatedAtActionResult>(response.Result);
+
+            ActionResult<AlbumModel> response2 = await _controller.GetAlbumModel(Id);
+            Assert.IsType<OkObjectResult>(response2.Result);
+
+            var okObject = (OkObjectResult)response2.Result;
             var value = (AlbumModel)okObject.Value;
 
-            Assert.Equal("Trilogy", value.Name);
-            Assert.Equal("The Weeknd", value.Artist);
+            Assert.Equal("The Woo", value.Name);
+            Assert.Equal("Pop Smoke", value.Artist);
         }
 
         [Fact]
@@ -67,7 +73,7 @@ namespace Album.Api.Tests
         [Fact]
         public async Task PostAlbumModel()
         {
-            int Id = new Random().Next(10, 10000000);
+            int Id = new Random().Next(10, 45423182);
 
             var album = new AlbumModel(Id, "The Woo", "Pop Smoke", null);
 
@@ -88,7 +94,7 @@ namespace Album.Api.Tests
         [Fact]
         public async Task PostAlbumModelDuplicateKey()
         {
-            int Id = new Random().Next(10, 10000000);
+            int Id = new Random().Next(10, 678451927);
 
             var album = new AlbumModel(Id, "The Woo", "Pop Smoke", null);
             ActionResult<AlbumModel> response = await _controller.PostAlbumModel(album);
@@ -103,7 +109,7 @@ namespace Album.Api.Tests
         [Fact]
         public async Task DeleteAlbumModel()
         {
-            int Id = new Random().Next(10, 10000000);
+            int Id = new Random().Next(10, 96845129);
             var album = new AlbumModel(Id, "The Woo", "Pop Smoke", null);
 
             ActionResult<AlbumModel> response = await _controller.PostAlbumModel(album);
@@ -117,7 +123,7 @@ namespace Album.Api.Tests
         [Fact]
         public async Task DeleteAlbumNonExistingModel()
         {
-            int Id = new Random().Next(10, 10000000);
+            int Id = new Random().Next(10, 8594178);
             var album = new AlbumModel(Id, "The Woo", "Pop Smoke", null);
 
             ActionResult response2 = await _controller.DeleteAlbumModel(album.Id);
@@ -127,7 +133,7 @@ namespace Album.Api.Tests
         [Fact]
         public async Task PutAlbumModel()
         {
-            int Id = new Random().Next(10, 10000000);
+            int Id = new Random().Next(10, 784512036);
             var album = new AlbumModel(Id, "The Woo", "Pop Smoke", null);
 
             ActionResult<AlbumModel> response = await _controller.PostAlbumModel(album);
@@ -155,7 +161,7 @@ namespace Album.Api.Tests
         [Fact]
         public async Task PutAlbumModelDifferentID()
         {
-            int Id = new Random().Next(10, 10000000);
+            int Id = new Random().Next(10, 7845191);
             
             var album2 = new AlbumModel(Id, "Slime Season", "Young Thug", null);
 
@@ -167,7 +173,7 @@ namespace Album.Api.Tests
         [Fact]
         public async Task PutAlbumModelNotFound()
         {
-            int Id = new Random().Next(10, 10000000);
+            int Id = new Random().Next(10, 96178459);
 
             var album2 = new AlbumModel(Id, "Slime Season", "Young Thug", null);
 

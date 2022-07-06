@@ -27,6 +27,8 @@ namespace Album.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddScoped<IAlbumService, AlbumService>();
 
             services.AddControllers();
@@ -46,6 +48,11 @@ namespace Album.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(policy => policy
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowAnyOrigin());
+
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Album.Api v1"));
